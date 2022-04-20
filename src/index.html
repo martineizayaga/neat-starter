@@ -4,7 +4,42 @@ title: Neat Starter
 path: home
 ---
 
-<div class="container mx-auto lg:h-screen flex flex-col justify-center items-center">
+{% set postslist = collections.post %}
+<div>
+  <div>
+    <header></header>
+    <nav>
+      <ul class="group">
+        {% for post in postslist | reverse %}
+          <li class="project-title">
+            {% if post.data.title %}
+              <a href="{{ post.url | url }}" class="text-indigo-500 font-bold text-lg">
+                {{ post.data.title }}
+              </a>
+            {% else %}
+              Untitled
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+  <main>
+    <section>
+      {% for post in postslist | reverse %}
+      
+      {% endfor %}
+    </section>
+    <section>
+      <a href="#">
+        <span class="arrow">↑</span>
+        <span class="preserve-whitespace">Back to Top</span>
+      </a>
+    </section>
+  </main>
+</div>
+
+<!-- <div class="container mx-auto lg:h-screen flex flex-col justify-center items-center">
   <h1>
     Welcome to
     <strong class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
@@ -19,4 +54,4 @@ path: home
   </p>
 
   {% include "./_includes/partials/content.html" %}
-</div>
+</div> -->
